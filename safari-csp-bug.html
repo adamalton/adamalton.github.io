@@ -8,10 +8,28 @@
 		<h1>Safari CSP Bug Demo</h1>
 		<p>
 			This page demonstrates a bug in Safari (existing in version 13.1.1 on macOS and whatever version is running on iOS 13.5)
-			where having a Content Security Policy which does not include <code>'data'</code> in the <code>img-src</code> causes
-			Safari to not load the buttons for <code>&lt;audio&gt;</code> elements because it loads its own <code>data:</code> URL
-			images and (mistakenly) applies the CSP policy to those images.
+			where the browser's native <code>&lt;audio&gt;</code> element is adversely affected by a page's
+			<code>Content Security Policy</code>.
 		</p>
+		<h2>Steps to reproduce</h2>
+		<ol>
+			<li>Create an HTML page with an element <code>&lt;audio controls&gt;&lt;audio&gt;</code>.</li>
+			<li>
+				Serve that page with a <code>Content-Security-Policy</code> where the <code>img-src</code>
+				(or the implied <code>img-src</code> via <code>default-src</code>)
+				does <em>not</em> permit <code>data</code>.
+			</li>
+			<li>Load the page in Safari.</li>
+		</ol>
+		<h2>Observed Behaviour</h2>
+		<p>
+			Safari displays the audio element, but the control buttons are missing.
+		</p>
+		<h2>Expected Behaviour</h2>
+		<p>
+			The <code>Content Security Policy</code> should not affect the behaviour of native browser elements.
+		</p>
+		<h2>Demo</h2>
 		<audio controls></audio>
 	</body>
 </html>
