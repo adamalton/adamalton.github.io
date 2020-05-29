@@ -7,13 +7,21 @@
 	<body>
 		<h1>Safari CSP Bug Demo</h1>
 		<p>
-			This page demonstrates a bug in Safari (existing in version 13.1.1 on macOS and whatever version is running on iOS 13.5)
-			where the browser's native <code>&lt;audio&gt;</code> element is adversely affected by a page's
-			<code>Content Security Policy</code>.
+			This page demonstrates a bug in Safari where the browser's native <code>&lt;audio&gt;</code>
+			element is adversely affected by a page's
+			<code>Content-Security-Policy</code>.
 		</p>
+		<h2>Affected Versions</h2>
+		<p>
+			Reproduced on these versions, but may affect others too:
+		</p>
+		<ul>
+			<li>13.1.1 on macOS 10.13.6</li>
+			<li>whatever version runs on iOS 13.5</li>
+		</ul>
 		<h2>Steps to reproduce</h2>
 		<ol>
-			<li>Create an HTML page with an element <code>&lt;audio controls&gt;&lt;audio&gt;</code>.</li>
+			<li>Create an HTML page with an element <code>&lt;audio controls&gt;&lt;/audio&gt;</code>.</li>
 			<li>
 				Serve that page with a <code>Content-Security-Policy</code> where the <code>img-src</code>
 				(or the implied <code>img-src</code> via <code>default-src</code>)
@@ -30,6 +38,7 @@
 			The <code>Content Security Policy</code> should not affect the behaviour of native browser elements.
 		</p>
 		<h2>Demo</h2>
+		<p>(Requires Safari)</p>
 		<audio controls></audio>
 	</body>
 </html>
