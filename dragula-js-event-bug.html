@@ -1,80 +1,94 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf8">
-	<link href="https://bevacqua.github.io/dragula/dist/dragula.css" rel="stylesheet" type="text/css" />
-	<style>
-		body {
-			text-align: center;
-		}
-		body > * {
-			text-align: left;
-			margin: auto;
-			width: 80%;
-		}
-		p {
-			padding: 1em 0;
-		}
-		.outer {
-			justify-content: space-around;
-			display: flex;
-		}
-		.container {
-			align-items: center;
-			background: green;
-			display: flex;
-			height: 200px;
-			justify-content: center;
-			width: 200px;
-		}
-		.moveable {
-			background: red;
-			box-sizing: border-box;
-			color: white;
-			height: 100px;
-			padding-top: 45px;
-			text-align: center;
-			width: 100px;
-		}
-	</style>
+    <meta charset="utf8">
+    <link href="https://bevacqua.github.io/dragula/dist/dragula.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            text-align: center;
+        }
+        body > * {
+            text-align: left;
+            margin: auto;
+            width: 80%;
+        }
+        p {
+            padding: 1em 0;
+        }
+        .outer {
+            justify-content: space-around;
+            display: flex;
+        }
+        .container {
+            align-items: center;
+            background: green;
+            display: flex;
+            height: 200px;
+            justify-content: center;
+            width: 200px;
+        }
+        .moveable {
+            background: red;
+            box-sizing: border-box;
+            color: white;
+            height: 100px;
+            padding-top: 45px;
+            text-align: center;
+            width: 100px;
+        }
+    </style>
 </head>
 <body>
 
-	<h1>Dragula Javascript Library 'out' Event Bug Demo</h1>
-	<p>&nbsp;</p>
-	<p>
-		This page demonstrates a bug in the Javascript drop &amp; library
-		<a href="https://github.com/bevacqua/dragula">Dragula</a>.
-	</p>
-	<p>
-		When a draggle element is dragged (back) out of a container, the <code>'out'</code> event should fire.
-		But instead it fires when the element is still inside the container and is <em>about to be</em> dragged out of it.
-		In other words, it fires before the DOM has updated.
-	</p>
-	<p>
-		Open the browser Javascript console to see the logging.
-	</p>
+    <h1>Dragula Javascript Library 'out' Event Bug Demo</h1>
+    <p>&nbsp;</p>
+    <p>
+        This page demonstrates a bug in the Javascript drop &amp; library
+        <a href="https://github.com/bevacqua/dragula">Dragula</a>.
+    </p>
+    <p>
+        When a draggle element is dragged (back) out of a container, the <code>'out'</code> event should fire.
+        But instead it fires when the element is still inside the container and is <em>about to be</em> dragged out of it.
+        In other words, it fires before the DOM has updated.
+    </p>
+    <p>
+        Open the browser Javascript console to see the logging.
+    </p>
 
-	<div class="outer">
-		<div class="container">
-			<div class="moveable">Drag me</div>
-		</div>
-		<div class="container">
-		</div>
-	</div>
+
+
+
+    <!-- The bit you're looking for
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                   \ /
+                    ˅
+-->
+
+    <div class="outer">
+        <div class="container">
+            <div class="moveable">Drag me</div>
+        </div>
+        <div class="container">
+        </div>
+    </div>
 
 <script type="text/javascript" src="https://bevacqua.github.io/dragula/dist/dragula.js"></script>
 <script>
-	dragula({
-		containers: Array.from(document.querySelectorAll('.container')),
-	})
-	.on("out", function(el, container, source){
-		let closestContainer = el.closest('.container');
-		console.log('out');
-		if (closestContainer && closestContainer.isSameNode(container)) {
-			console.error('Element is still in container');
-		}
-	})
+    dragula({
+        containers: Array.from(document.querySelectorAll('.container')),
+    })
+    .on("out", function(el, container, source){
+        let closestContainer = el.closest('.container');
+        console.log('out');
+        if (closestContainer && closestContainer.isSameNode(container)) {
+            console.error('Element is still in container');
+        }
+    })
 </script>
 </body>
 </html>
