@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Comparing Covid-19 to Air Pollution in Life Years Lost in London - Adam Alton</title>
+	<meta property="og:title" content="Air Pollution vs. Covid-19">
+	<meta property="og:description" content="Comparing life years lost in London from Covid-19 vs air pollution.">
+	<meta property="og:image" content="https://adamalton.github.io/purple-particles.jpg">
+	<meta property="og:url" content="https://adamalton.github.io/air-pollution-vs-covid.html">
+	<meta name="twitter:card" content="summary_large_image">
+	<style>
+		body {
+			font-family: BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
+			padding: 2em;
+			text-align: center;
+		}
+		#container {
+			text-align: left;
+			margin: auto;
+			max-width: 1024px;
+		}
+		img {
+			max-width: 100%;
+		}
+		h1 {
+			margin-bottom: 2em;
+		}
+		/*h2::after {
+			content: " ";
+			display: block;
+			height: 10px;
+			background: linear-gradient(to bottom, rgba(98, 5, 140, 0.3) 0%, rgba(98, 5, 140, 0) 100%) bottom;
+		}*/
+		h2 {
+			border-bottom: 1px solid #62058c;
+			padding-bottom: 0.5em;
+		}
+		h2, h3 {
+			margin-top: 2.5em;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		td, th {
+			border: 1px solid #62058c;
+			padding: 0.2em;
+		}
+		footer {
+			border-top: 1px solid #62058c;
+			margin: 4em 0;
+			padding-top: 1em;
+		}
+		td.number {
+			text-align: right;
+		}
+		.banner-image {
+			margin-bottom: 3em;
+		}
+		.bigfigure {
+			border-left: 3px solid #62058c;
+			color: #62058c;
+			font-size: 1.5em;
+			margin: 2em 0;
+			padding-left: 0.5em;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+
+<h1>
+	Comparing Covid-19 to Air Pollution in Life Years Lost in London
+</h1>
+
+<img class="banner-image" src="purple-particles-slice.jpg"
+	title="Image from the Smithsonian Institute - https://www.flickr.com/photos/smithsonian/2941518444/"
+	alt="Coloured speckles floating in space"/>
+
+<p>
+	I've previously tweeted
+	(<a href="https://twitter.com/altonpowers/status/1342903239507902464?s=20">in September</a>
+	and again
+	<a href="https://twitter.com/altonpowers/status/1342903239507902464?s=20">in December</a>)
+	about the number of deaths caused by Covid-19 in London compared to the number caused by air pollution in London.
+</p>
+<p>
+	But simply counting "deaths" isn't a great way to compare the loss; comparing the number of life years
+	which have been lost would be better.
+	So this document is my first attempt at trying to get an objective comparison of the life years lost
+	from Covid vs. air pollution.
+</p>
+
+
+<h2>Covid-19</h2>
+
+<p>
+	As you'll see below, the number of life years lost from air pollution has already been calculated by Kings College London, so our main task in <em>this document</em> is to calculate the life years lost from Covid-19.
+</p>
+
+<p>
+	In simple terms, we're going to get the number of Covid-19 deaths by age,
+	find out what the life expectancy of those people would have been,
+	and use those 2 figures to give us the number of life years lost.
+</p>
+
+
+<h3>Deaths By age</h3>
+
+<p>
+	Number of deaths by age as of 26/12/2020, in hospitals England (not just London).
+	<a href="https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-daily-deaths/
+https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2020/12/COVID-19-total-announced-deaths-26-December-2020.xlsx">Source</a>.
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Age range</th><th>Deaths</th>
+		</tr>
+		<tr>
+			<td>0 - 19</td><td class="number">27</td>
+		</tr>
+		<tr>
+			<td>20 - 39</td><td class="number">307</td>
+		</tr>
+		<tr>
+			<td>40 - 59</td><td class="number">3,282</td>
+		</tr>
+		<tr>
+			<td>60 - 79</td><td class="number">18,358</td>
+		</tr>
+		<tr>
+			<td>80+</td><td class="number">26,337</td>
+		</tr>
+		<tr>
+			<td>Total</td><td class="number">48,311</td>
+		</tr>
+	</thead>
+</table>
+
+<h3>Translating that to London</h3>
+<p>
+	We don't have the same breakdown by age for the deaths in London (if it exists then please let me know).
+	So we have to estimate this by applying the proportions for each age in England to the London total.
+</p>
+<p>
+	The total number of deaths in London hospitals is <strong>7,941</strong>
+	(<a href="https://data.london.gov.uk/dataset/coronavirus--covid-19--deaths">source</a>)
+	out of the national (England) total of <strong>48,311</strong>.
+	So London is <strong>16.44%</strong> of the England total.
+	So to estimate the breakdown by age for London we multiply each row by 0.1644.
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Age range</th><th>London Deaths<br>(estimated)</th>
+		</tr>
+		<tr>
+			<td>0 - 19</td><td class="number">4</td>
+		</tr>
+		<tr>
+			<td>20 - 39</td><td class="number">50</td>
+		</tr>
+		<tr>
+			<td>40 - 59</td><td class="number">539</td>
+		</tr>
+		<tr>
+			<td>60 - 79</td><td class="number">3,018</td>
+		</tr>
+		<tr>
+			<td>80+</td><td class="number">4,329</td>
+		</tr>
+		<tr>
+			<td>Total</td><td class="number">7,941</td>
+		</tr>
+	</thead>
+</table>
+
+<p>Note that the total is off by one, simply due to the fact that when multiplying by 0.1644, more of the rows rounded down than up.</p>
+
+<p>
+	It should also be pointed out that estimating the figures this way assumes that the population of London has the same age profile as England in general (which it almost certainly doesn't), and that each age group is similarly vulnerable to dying of Covid-19 (but given London's large BAME population, and the increased vulnerability of BAME people to Covid-19, that's probably not the case).
+	The age factor could possibly be accounted for here, but I'm not sure quite in what way the BAME factor would affect the numbers, so I'm just going to leave these figures as our best estimate for the moment.
+</p>
+
+
+<h3>Refining the 80+ band</h3>
+
+<p>
+	You'll see that the last band doesn't have an upper age, it's just &quot;80+&quot;.
+	We could just say &quot;Let's call it 80 - 100&quot;, but I think we can do a bit better than that.
+</p>
+<p>
+	This <a href="https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fpopulationandmigration%2fpopulationprojections%2fdatasets%2ftablea21principalprojectionukpopulationinagegroups%2f2018based/ukpppsumpop18.xls">ONS population data</a>
+	gives us this age breakdown for 2020 (I've added the 3rd column myself)
+</p>
+<table>
+	<thead>
+		<tr>
+			<th>Age range</th><th>Population (thousands)</th><th>As % of 80+ total</th>
+		</tr>
+		<tr>
+			<td>80-84</td><td class="number">1,738</td><td class="number">50.1%</td>
+		</tr>
+		<tr>
+			<td>85-89</td><td class="number">1,058</td><td class="number">31.0%</td>
+		</tr>
+		<tr>
+			<td>90-94</td><td class="number">469</td><td class="number">13.8%</td>
+		</tr>
+		<tr>
+			<td>95-99</td><td class="number">128</td><td class="number">3.8%</td>
+		</tr>
+		<tr>
+			<td>100 & over</td><td class="number">15</td><td class="number">0.4%</td>
+		</tr>
+	</thead>
+</table>
+
+<p>
+	So we can use this to do a much better estimate of the age breakdown of the London Covid deaths.
+</p>
+<p>
+	We've still got an undefined upper band of &quot;100+&quot; though.
+	For ages 100-103, the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07">ONS life expectancy calculator</a>
+	gives a remaining life expectancy of 2 years.
+	And then from 104 onwards it gives a remaining life expectancy of 1 year.
+	So actually, for this band I'm just going to say that each Covid death is 1.5 lost life years, which I think is fair.
+	The number of London deaths in this band is only going to be about 19, so any inaccuracy here is only going to make a difference of about +/- 10 years to our life years total.
+</p>
+
+
+<h3>Calculating Life Years Lost</h3>
+
+<p>
+	So given this breakdown of Covid deaths by age, we can now use the
+	<a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07">ONS life expectancy calculator</a>
+	to try to work out the life years lost due to Covid.
+</p>
+<p>
+	We'll do this by taking the middle age of each band, getting the life expectancy of someone for that age, deducting the former from the latter, and multiplying it by the number of deaths for that band.
+</p>
+<p>
+	This assumes an even distribution of ages within each band, but without better data, that's all we can do for now.
+</p>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Age range</th>
+			<th>Midpoint</th>
+			<th>Expected life years<br>remaining at midpoint</th>
+			<th>London Deaths</th>
+			<th>Life years lost</th>
+		</tr>
+		<tr>
+			<td>0 - 19</td>
+			<td>9.5</td>
+			<td>79</td>
+			<td>4</td>
+			<td>316</td>
+		</tr>
+		<tr>
+			<td>20 - 39</td>
+			<td>29.5</td>
+			<td>57</td>
+			<td>50</td>
+			<td>2,850</td>
+		</tr>
+		<tr>
+			<td>40 - 59</td>
+			<td>49.5</td>
+			<td>36</td>
+			<td>539</td>
+			<td>19,404</td>
+		</tr>
+		<tr>
+			<td>60 - 79</td>
+			<td>69.5</td>
+			<td>17.5</td>
+			<td>3,018</td>
+			<td>52,815</td>
+		</tr>
+		<tr>
+			<td>80-84</td>
+			<td>82</td>
+			<td>8.5</td>
+			<td>2,207.7</td>
+			<td>18,765</td>
+		</tr>
+		<tr>
+			<td>85-89</td>
+			<td>87</td>
+			<td>7.5</td>
+			<td>1,343.9</td>
+			<td>10.079</td>
+		</tr>
+		<tr>
+			<td>90-94</td>
+			<td>92</td>
+			<td>4</td>
+			<td>595.7</td>
+			<td>2,383</td>
+		</tr>
+		<tr>
+			<td>95-99</td>
+			<td>97</td>
+			<td>2.5</td>
+			<td>162.6</td>
+			<td>407</td>
+		</tr>
+		<tr>
+			<td>100+</td>
+			<td>103</td>
+			<td title="Note that this is an estimate (see comments above)">1.5</td>
+			<td>19.1</td>
+			<td>29</td>
+		</tr>
+		<tr>
+			<td>Total</td>
+			<td>-</td>
+			<td>-</td>
+			<td>7,941</td>
+			<td><strong>107,048</strong></td>
+		</tr>
+	</thead>
+</table>
+
+<p>
+	So that gives us a total of <strong>107,048</strong> life years lost due to Covid-19 in London based on <em>hospital</em> deaths.
+</p>
+<p>
+	But, as is stated along with the
+	<a href="https://data.london.gov.uk/dataset/coronavirus--covid-19--deaths">published London data</a>,
+	the deaths in hospitals only account for about 75% of the total Covid deaths.
+	So, for a crude conversion to give us a total, we divide by 0.75 which gives:
+</p>
+
+<p>
+	<strong>142,731 life years lost in London due to Covid-19</strong>
+</p>
+<p>
+	(Up to 26/12/2020.)
+</p>
+
+<p>
+	As should be clear from the notes above, this figure is an estimate, based on some assumptions.
+	I'm open to improvements, refinements or corrections on this figure.
+</p>
+
+
+<h2>Air Pollution</h2>
+
+<p>
+	Fortunately, for air pollution in London we already have a figure for the number of life years lost from the
+	<a href="https://www.london.gov.uk/sites/default/files/hiainlondon_kingsreport_14072015_final.pdf">Kings College report</a>
+	which is:
+</p>
+
+<p>
+	<strong>140,743 life years lost in London due to air pollution</strong>
+</p>
+
+
+<p>
+	(Every year.)
+</p>
+
+
+<h2>Conclusion</h2>
+
+<p>
+	So our final estimates are:
+</p>
+<div class="bigfigure">
+	<p>
+		Life years lost to Covid-19 in London up to 26/12/20: <strong>142,731</strong>.
+	</p>
+	<p>
+		Life years lost in London due to air pollution each year: <strong>140,743</strong>.
+	</p>
+</div>
+
+<p>
+	That's incredibly similar!
+</p>
+<p>&nbsp;</p>
+<p>
+	I'm not going to put suggestions here for what should be drawn from this or
+	what actions should or shouldn't be taken. I'll let you draw those conclusions yourself.
+	But I will point out a couple of things which are worth thinking about with these numbers:
+</p>
+<ul>
+	<li>
+		The life years lost from Covid-19 would have been a lot higher if action had not been taken.
+	</li>
+	<li>
+		The loss of life from air pollution is happening every year.
+	</li>
+</ul>
+<p>&nbsp;</p>
+
+<p>
+	I hope you found this interesting and that you find the data useful.
+</p>
+
+<footer>
+	<p>
+		You can find me on Twitter <a href="https://twitter.com/altonpowers">@altonpowers</a>.
+		Suggestions, improvements, retweets, follows, and cat pictures are all welcome.
+	</p>
+	<p>
+		You can view the <a href="https://github.com/adamalton/adamalton.github.io/commits/master/air-pollution-vs-covid.html">history of this page on GitHub</a>.
+	</p>
+</footer>
+
+</div>
+</body>
+</html>
